@@ -5,19 +5,54 @@
  */
 package dominio;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author WT
  */
 
-/*Queda ver si es abstracta o virtual porque nunca recuerdo que carajo es*/
-/**/
+
 public abstract class Apuesta {
     
-    /*int id*/
+    private int id;
+    private BigDecimal totalGanancia;
+    private BigDecimal totalPerdida;
+
+    public Apuesta() {
+    }
+
     
-    /*TotalGanancia*/
-    /*TotalPerdida*/
+    
+    public Apuesta(int id, BigDecimal totalGanancia, BigDecimal totalPerdida) {
+        this.id = id;
+        this.totalGanancia = totalGanancia;
+        this.totalPerdida = totalPerdida;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public BigDecimal getTotalGanancia() {
+        return totalGanancia;
+    }
+
+    public BigDecimal getTotalPerdida() {
+        return totalPerdida;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTotalGanancia(BigDecimal totalGanancia) {
+        this.totalGanancia = totalGanancia;
+    }
+
+    public void setTotalPerdida(BigDecimal totalPerdida) {
+        this.totalPerdida = totalPerdida;
+    }
     
     
 }

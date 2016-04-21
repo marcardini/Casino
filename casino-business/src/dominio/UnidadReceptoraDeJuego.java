@@ -2,8 +2,8 @@ package dominio;
 
 import DateTimeProcessors.DateTimeProcessors;
 
-/*¿No deberia ser abstracta o virtual? */
-public class UnidadReceptoraDeJuego {
+
+public abstract class UnidadReceptoraDeJuego {
     
     private int id;
     private String usuarioCreador;
