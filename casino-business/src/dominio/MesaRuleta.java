@@ -14,7 +14,9 @@ public class MesaRuleta extends UnidadReceptoraDeJuego{
     private List<Integer> numerosApostados;
     private List<Color> coloresDisponiblesParaJugadores;
     private int ultimoNumeroSortado;
-    
+    private CasilleroRuleta casillero;
+
+   
     private Jugador[] arrayJugadores = new Jugador[3];
     
     public MesaRuleta(String nombre, Jugador usuarioCreador){
@@ -98,5 +100,15 @@ public class MesaRuleta extends UnidadReceptoraDeJuego{
     public void setArrayJugadores(Jugador[] arrayJugadores) {
         this.arrayJugadores = arrayJugadores;
     }
+    
+     public CasilleroRuleta getCasillero() {
+        return casillero;
+    }
+
+    public void setCasillero(CasilleroRuleta casillero) {
+        this.casillero = casillero;
+    }
+     
+     
     
 }

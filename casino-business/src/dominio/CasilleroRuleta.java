@@ -10,13 +10,13 @@ public class CasilleroRuleta {
     private Color colorOriginal;
     private BigDecimal montoApostado;
     private Jugador jugadorAposto;
-    private MesaRuleta mesa;
+    
     
     public CasilleroRuleta(){}
     
     public CasilleroRuleta(MesaRuleta mesa, int numeroEnMesa, Color colorOriginal)
     {
-        this.mesa = mesa;
+        
         this.numeroEnMesa = numeroEnMesa;
         this.colorOriginal = colorOriginal;
         this.montoApostado = BigDecimal.ZERO;
@@ -33,8 +33,7 @@ public class CasilleroRuleta {
         if (!(other instanceof CasilleroRuleta))
             return false;
         CasilleroRuleta that = (CasilleroRuleta) other;
-	return this.getMesa().equals(that.getMesa()) 
-                && this.getNumeroEnMesa() == that.getNumeroEnMesa() 
+	return  this.getNumeroEnMesa() == that.getNumeroEnMesa() 
                 && this.getColorOriginal().equals(that.getColorOriginal());
     }
     
@@ -43,7 +42,6 @@ public class CasilleroRuleta {
         int hash = 5;
         hash = 23 * hash + this.numeroEnMesa;
         hash = 23 * hash + Objects.hashCode(this.colorOriginal);
-        hash = 23 * hash + Objects.hashCode(this.mesa);
         return hash;
     }
     
@@ -56,9 +54,6 @@ public class CasilleroRuleta {
         return id;
     }
     
-    public MesaRuleta getMesa(){
-        return mesa;
-    }
     
     public int getNumeroEnMesa() {
         return numeroEnMesa;
@@ -80,9 +75,6 @@ public class CasilleroRuleta {
         this.id = id;
     }
     
-    public void setMesa(MesaRuleta mesa){
-        this.mesa = mesa;
-    }
     
     public void setNumeroEnMesa(int numeroEnMesa) {
         this.numeroEnMesa = numeroEnMesa;

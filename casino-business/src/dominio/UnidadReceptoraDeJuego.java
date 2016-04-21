@@ -2,6 +2,7 @@ package dominio;
 
 import DateTimeProcessors.DateTimeProcessors;
 
+/*¿No deberia ser abstracta o virtual? */
 public class UnidadReceptoraDeJuego {
     
     private int id;
