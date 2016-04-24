@@ -2,13 +2,13 @@ package dominio;
 
 import java.math.BigDecimal;
 
-public class EstadisticaJuego {
+public class Estadistica {
     
     private int id;
     private BigDecimal sumaHistoricoGanado;
     private BigDecimal sumaHistoricoPerdido;
 
-    public EstadisticaJuego()
+    public Estadistica()
     {
         this.sumaHistoricoGanado = BigDecimal.ZERO;
         this.sumaHistoricoPerdido = BigDecimal.ZERO;

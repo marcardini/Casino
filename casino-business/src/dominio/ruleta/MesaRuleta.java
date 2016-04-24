@@ -1,5 +1,8 @@
-package dominio;
+package dominio.ruleta;
 
+import dominio.Jugador;
+import dominio.UnidadReceptoraDeJuego;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -14,9 +17,7 @@ public class MesaRuleta extends UnidadReceptoraDeJuego{
     private List<Integer> numerosApostados;
     private List<Color> coloresDisponiblesParaJugadores;
     private int ultimoNumeroSortado;
-    private CasilleroRuleta casillero;
-
-   
+    
     private Jugador[] arrayJugadores = new Jugador[3];
     
     public MesaRuleta(String nombre, Jugador usuarioCreador){
@@ -24,10 +25,10 @@ public class MesaRuleta extends UnidadReceptoraDeJuego{
         this.nombre = nombre;
         arrayJugadores[0] = usuarioCreador;
         this.coloresDisponiblesParaJugadores = new ArrayList<>();
-        this.coloresDisponiblesParaJugadores.add(Color.AMARILLO);
-        this.coloresDisponiblesParaJugadores.add(Color.AZUL);
-        this.coloresDisponiblesParaJugadores.add(Color.MARRON);
-        this.coloresDisponiblesParaJugadores.add(Color.ROSADO);
+        this.coloresDisponiblesParaJugadores.add(Color.YELLOW);
+        this.coloresDisponiblesParaJugadores.add(Color.BLUE);
+        this.coloresDisponiblesParaJugadores.add(Color.GREEN);
+        this.coloresDisponiblesParaJugadores.add(Color.PINK);
         this.numerosApostados = new ArrayList<>();
     }
 
@@ -100,15 +101,5 @@ public class MesaRuleta extends UnidadReceptoraDeJuego{
     public void setArrayJugadores(Jugador[] arrayJugadores) {
         this.arrayJugadores = arrayJugadores;
     }
-    
-     public CasilleroRuleta getCasillero() {
-        return casillero;
-    }
-
-    public void setCasillero(CasilleroRuleta casillero) {
-        this.casillero = casillero;
-    }
-     
-     
     
 }

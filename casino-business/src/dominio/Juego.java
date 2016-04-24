@@ -3,7 +3,7 @@ package dominio;
 import java.util.List;
 import java.util.Objects;
 
-public class Juego {
+public abstract class Juego {
     
     int id;
     private String nombre; 

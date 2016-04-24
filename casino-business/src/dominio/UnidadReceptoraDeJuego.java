@@ -2,7 +2,6 @@ package dominio;
 
 import DateTimeProcessors.DateTimeProcessors;
 
-
 public abstract class UnidadReceptoraDeJuego {
     
     private int id;

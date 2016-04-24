@@ -1,58 +1,72 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dominio;
 
+import DateTimeProcessors.DateTimeProcessors;
 import java.math.BigDecimal;
-
-/**
- *
- * @author WT
- */
-
 
 public abstract class Apuesta {
     
+    DateTimeProcessors fechaHoraUtil;
+    
     private int id;
-    private BigDecimal totalGanancia;
-    private BigDecimal totalPerdida;
-
-    public Apuesta() {
-    }
-
+    private UnidadReceptoraDeJuego unidadReceptora;
+    private Jugador jugador;
+    private String fecha;
+    private BigDecimal montoTotal;
+    private boolean apuestaTerminada;
     
-    
-    public Apuesta(int id, BigDecimal totalGanancia, BigDecimal totalPerdida) {
-        this.id = id;
-        this.totalGanancia = totalGanancia;
-        this.totalPerdida = totalPerdida;
+    public Apuesta(UnidadReceptoraDeJuego unidadReceptora, Jugador jugador, boolean terminada){
+        this.unidadReceptora = unidadReceptora;
+        this.jugador = jugador;
+        this.fecha = fechaHoraUtil.ObtenerFechaHoraActual();
+        this.apuestaTerminada = terminada;
     }
 
     public int getId() {
         return id;
     }
 
-    public BigDecimal getTotalGanancia() {
-        return totalGanancia;
-    }
-
-    public BigDecimal getTotalPerdida() {
-        return totalPerdida;
-    }
-
     public void setId(int id) {
         this.id = id;
     }
-
-    public void setTotalGanancia(BigDecimal totalGanancia) {
-        this.totalGanancia = totalGanancia;
+    
+    public UnidadReceptoraDeJuego getUnidadReceptoraDeJuego() {
+        return unidadReceptora;
     }
-
-    public void setTotalPerdida(BigDecimal totalPerdida) {
-        this.totalPerdida = totalPerdida;
+     
+    public void setUnidadReceptoraDeJuego(UnidadReceptoraDeJuego unidadReceptora) {
+        this.unidadReceptora = unidadReceptora;
     }
     
+    public Jugador getJugador() {
+        return jugador;
+    }
     
+    public void setJugador(Jugador jugador) {
+        this.jugador = jugador;
+    }
+    
+    public String getFecha() {
+        return fecha;
+    }
+    
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public BigDecimal getMontoTotal() {
+        return montoTotal;
+    }
+    
+    public void setMontoTotal(BigDecimal montoTotal) {
+        this.montoTotal = montoTotal;
+    }
+    
+    public boolean isFinalizoApuesta() {
+        return apuestaTerminada;
+    }
+    
+    public void setFinalizoApuesta(boolean finalizoApuesta) {
+        this.apuestaTerminada = finalizoApuesta;
+    }
+ 
 }

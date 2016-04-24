@@ -9,59 +9,19 @@ public class Jugador {
     private String nombreUsuario;
     private String nombre;
     private String contrasenia;
-    private MesaRuleta mesaActual;
+    private UnidadReceptoraDeJuego unidadReceptoraDeJuegoActual;
     private BigDecimal saldo;
-    private Color colorJuego;
-    private boolean habilitadoApostar;
-    private Apuesta apuestaActual;
-    private EstadisticasJugador estadisticasJugador;
+    private Estadistica estadisticasJugador;
 
     public Jugador(){}
-    
-    public Jugador(String nombreUsuario, String nombre, String contrasenia)
-    {
-        this.nombreUsuario = nombreUsuario;
-        this.nombre = nombre;
-        this.contrasenia = contrasenia;
-        this.saldo = BigDecimal.ZERO;
-        this.colorJuego = Color.INACTIVO;
-        this.habilitadoApostar = false;
-        this.estadisticasJugador = new EstadisticasJugador();
-    }
-    
+        
     public Jugador(String nombreUsuario, String nombre, String contrasenia, BigDecimal saldo)
     {
         this.nombreUsuario = nombreUsuario;
         this.nombre = nombre;
         this.contrasenia = contrasenia;
         this.saldo = saldo;
-        this.colorJuego = Color.INACTIVO;
-        this.habilitadoApostar = false;
-        this.estadisticasJugador = new EstadisticasJugador();
-    }
-    
-    public Jugador(String nombreUsuario, String nombre, String contrasenia, MesaRuleta mesa)
-    {
-        this.nombreUsuario = nombreUsuario;
-        this.nombre = nombre;
-        this.contrasenia = contrasenia;
-        this.mesaActual = mesa;
-        this.saldo = BigDecimal.ZERO;
-        this.colorJuego = Color.INACTIVO;
-        this.habilitadoApostar = false;
-        this.estadisticasJugador = new EstadisticasJugador();
-    }
-    
-    public Jugador(String nombreUsuario, String nombre, String contrasenia, BigDecimal saldo, MesaRuleta mesa)
-    {
-        this.nombreUsuario = nombreUsuario;
-        this.nombre = nombre;
-        this.contrasenia = contrasenia;
-        this.saldo = saldo;
-        this.mesaActual = mesa;
-        this.colorJuego = Color.INACTIVO;
-        this.habilitadoApostar = false;
-        this.estadisticasJugador = new EstadisticasJugador();
+        this.estadisticasJugador = new Estadistica();
     }
     
     public boolean ValidarNombre(String nombre)
@@ -123,27 +83,15 @@ public class Jugador {
         return contrasenia;
     }
 
-    public MesaRuleta getMesaActual() {
-        return mesaActual;
+    public UnidadReceptoraDeJuego getUnidadReceptoraDeJuegoActual() {
+        return unidadReceptoraDeJuegoActual;
     }
 
     public BigDecimal getSaldo() {
         return saldo;
     }
 
-    public Color getColorJuego() {
-        return colorJuego;
-    }
-
-    public boolean isHabilitadoApostar() {
-        return habilitadoApostar;
-    }
-
-    public Apuesta getApuestaActual() {
-        return apuestaActual;
-    }
-
-    public EstadisticasJugador getEstadisticasJugador() {
+    public Estadistica getEstadisticasJugador() {
         return estadisticasJugador;
     }
 
@@ -163,27 +111,15 @@ public class Jugador {
         this.contrasenia = contrasenia;
     }
 
-    public void setMesaActual(MesaRuleta mesaActual) {
-        this.mesaActual = mesaActual;
+    public void setUnidadReceptoraDeJuegoActual(UnidadReceptoraDeJuego unidadReceptoraDeJuegoActual) {
+        this.unidadReceptoraDeJuegoActual = unidadReceptoraDeJuegoActual;
     }
 
     public void setSaldo(BigDecimal saldo) {
         this.saldo = saldo;
     }
 
-    public void setColorJuego(Color colorJuego) {
-        this.colorJuego = colorJuego;
-    }
-
-    public void setHabilitadoApostar(boolean habilitadoApostar) {
-        this.habilitadoApostar = habilitadoApostar;
-    }
-
-    public void setApuestaActual(Apuesta apuestaActual) {
-        this.apuestaActual = apuestaActual;
-    }
-
-    public void setEstadisticasJugador(EstadisticasJugador estadisticasJugador) {
+    public void setEstadisticasJugador(Estadistica estadisticasJugador) {
         this.estadisticasJugador = estadisticasJugador;
     }
 

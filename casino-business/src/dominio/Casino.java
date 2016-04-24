@@ -6,7 +6,12 @@ public class Casino {
     
     private int id;
     private List<Jugador> listaJugadoresRegistrados;
+    private Estadistica estadisticasTodosLosJuegos;
 
+    public Casino(List<Jugador> listaJugadores){
+        this.listaJugadoresRegistrados = listaJugadores;
+    }
+    
     public int getId() {
         return id;
     }
@@ -22,5 +27,13 @@ public class Casino {
     public void setListaJugadoresRegistrados(List<Jugador> listaJugadoresRegistrados) {
         this.listaJugadoresRegistrados = listaJugadoresRegistrados;
     }
-
+    
+    public Estadistica getEstadisticasTodosLosJuegos() {
+        return estadisticasTodosLosJuegos;
+    }
+    
+    public void setEstadisticasTodosLosJuegos(Estadistica estadisticasTodosLosJuegos) {
+        this.estadisticasTodosLosJuegos = estadisticasTodosLosJuegos;
+    }
+   
 }
