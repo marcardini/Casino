@@ -1,22 +1,18 @@
 package dominio.ruleta;
 
-import dominio.Jugador;
-import dominio.UnidadReceptoraDeJuego;
 import java.awt.Color;
 import java.math.BigDecimal;
-import java.util.ArrayList;
 
-public class JugadorRuleta extends Jugador{
+public class JugadorRuleta{
     
     private ApuestaRuleta apuestaActual;
     private Color colorJuego;
     private boolean habilitadoApostar;
     
-     public JugadorRuleta(String nombreUsuario, String nombre, String contrasenia, BigDecimal saldo)
+     public JugadorRuleta(Color colorAsignado)
     {
-        super(nombreUsuario, nombre, contrasenia, saldo);
         this.habilitadoApostar = false;
-        this.colorJuego = Color.GRAY;
+        this.colorJuego = colorAsignado;
     }
 
     public ApuestaRuleta getApuestaActual() {
@@ -43,6 +39,5 @@ public class JugadorRuleta extends Jugador{
         this.habilitadoApostar = habilitadoApostar;
     }
 
-
-    
+  
 }

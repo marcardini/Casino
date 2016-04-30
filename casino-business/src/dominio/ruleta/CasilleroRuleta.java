@@ -1,7 +1,6 @@
 package dominio.ruleta;
 
 import dominio.Jugador;
-import dominio.ruleta.MesaRuleta;
 import java.awt.Color;
 import java.math.BigDecimal;
 import java.util.Objects;

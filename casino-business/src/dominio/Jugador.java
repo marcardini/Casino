@@ -1,5 +1,6 @@
 package dominio;
 
+import dominio.ruleta.JugadorRuleta;
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -12,7 +13,8 @@ public class Jugador {
     private UnidadReceptoraDeJuego unidadReceptoraDeJuegoActual;
     private BigDecimal saldo;
     private Estadistica estadisticasJugador;
-
+    private JugadorRuleta jugadorRuleta;
+    
     public Jugador(){}
         
     public Jugador(String nombreUsuario, String nombre, String contrasenia, BigDecimal saldo)
@@ -27,13 +29,11 @@ public class Jugador {
     public boolean ValidarNombre(String nombre)
     {
         return this.nombre != null && !this.nombre.isEmpty();
-        
     }
     
     public boolean ValidarContrasenia(String contrasenia)
     {
-        return contrasenia != null && !contrasenia.isEmpty() && contrasenia.length() >= 6;
-            
+        return contrasenia != null && !contrasenia.isEmpty() && contrasenia.length() >= 6;  
     }
     
     public boolean Validar()
@@ -123,4 +123,14 @@ public class Jugador {
         this.estadisticasJugador = estadisticasJugador;
     }
 
+    public JugadorRuleta getJugadorRuleta() {
+        return jugadorRuleta;
+    }
+
+    public void setJugadorRuleta(JugadorRuleta jugadorRuleta) {
+        this.jugadorRuleta = jugadorRuleta;
+    }
+    
+    
+    
 }

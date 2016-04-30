@@ -18,18 +18,27 @@ public class MesaRuleta extends UnidadReceptoraDeJuego{
     private List<Color> coloresDisponiblesParaJugadores;
     private int ultimoNumeroSortado;
     
-    private Jugador[] arrayJugadores = new Jugador[3];
+    private ArrayList<Jugador> listaJugadores = new ArrayList();
     
     public MesaRuleta(String nombre, Jugador usuarioCreador){
         super(usuarioCreador);
         this.nombre = nombre;
-        arrayJugadores[0] = usuarioCreador;
         this.coloresDisponiblesParaJugadores = new ArrayList<>();
         this.coloresDisponiblesParaJugadores.add(Color.YELLOW);
         this.coloresDisponiblesParaJugadores.add(Color.BLUE);
         this.coloresDisponiblesParaJugadores.add(Color.GREEN);
         this.coloresDisponiblesParaJugadores.add(Color.PINK);
+        this.coloresDisponiblesParaJugadores.add(Color.ORANGE);
+        this.coloresDisponiblesParaJugadores.add(Color.MAGENTA);
+        this.coloresDisponiblesParaJugadores.add(Color.WHITE);
+        this.coloresDisponiblesParaJugadores.add(Color.DARK_GRAY);
+        JugadorRuleta jugadorRuleta = new JugadorRuleta(Color.YELLOW);
+        usuarioCreador.setJugadorRuleta(jugadorRuleta);
+        listaJugadores.add(usuarioCreador);
+        this.coloresDisponiblesParaJugadores.remove(Color.YELLOW);
         this.numerosApostados = new ArrayList<>();
+        
+        /*Se agregan colores para evitar cambios y olvidos en caso de que la mesa pueda aceptar mas de 4 jugadores*/
     }
 
     @Override
@@ -53,12 +62,21 @@ public class MesaRuleta extends UnidadReceptoraDeJuego{
     
     @Override
     public String toString() {
-        return "Mesa " + this.getNombre() + ". Creada por " + this.getUsuarioCreador() 
-                + " el día " + this.getFechaCreacion();
+        return "Mesa " + this.getNombre() + " Usuarios en mesa: " + listaJugadores.size();        
+    }
+    
+    public boolean puedoAgregar(){
+        if(listaJugadores.size() < 4){
+            return true;
+        }else{
+            return false;
+        }
+        
     }
     
     public boolean Validar(){
-        return this.nombre != null && !this.nombre.isEmpty();
+    return this.nombre != null && !this.nombre.isEmpty();
+    
     }
 
     
@@ -73,7 +91,17 @@ public class MesaRuleta extends UnidadReceptoraDeJuego{
     public List<Color> getColoresDisponiblesParaJugadores() {
         return coloresDisponiblesParaJugadores;
     }
+    
+    private Color asignarColorJugadorRuleta(){
+        Color retorno = coloresDisponiblesParaJugadores.get(0);
+        coloresDisponiblesParaJugadores.remove(0);
+        return retorno;
+    }
 
+    private void devolverColor(Color colorJugador){
+        coloresDisponiblesParaJugadores.add(colorJugador);
+    }
+    
     public int getUltimoNumeroSortado() {
         return ultimoNumeroSortado;
     }
@@ -94,12 +122,16 @@ public class MesaRuleta extends UnidadReceptoraDeJuego{
         this.ultimoNumeroSortado = ultimoNumeroSortado;
     }
     
-    public Jugador[] getArrayJugadores() {
-        return arrayJugadores;
-    }
-
-    public void setArrayJugadores(Jugador[] arrayJugadores) {
-        this.arrayJugadores = arrayJugadores;
+    public boolean agregarJugadorRuleta(Jugador jugadorMesaRuleta){
+        
+        if(this.puedoAgregar()){
+            this.listaJugadores.add(jugadorMesaRuleta);
+            return true;
+        }
+        else{
+            return false;
+        }
+        
     }
     
 }

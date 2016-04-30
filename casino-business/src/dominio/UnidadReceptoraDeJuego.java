@@ -14,6 +14,7 @@ public abstract class UnidadReceptoraDeJuego {
     public UnidadReceptoraDeJuego(Jugador usuarioCreador){
         this.usuarioCreador = usuarioCreador.getNombre();
         this.fechaCreacion = fechaUtil.ObtenerFechaHoraActual();
+        usuarioCreador.setUnidadReceptoraDeJuegoActual(this);
     }
     
     public int getId() {
