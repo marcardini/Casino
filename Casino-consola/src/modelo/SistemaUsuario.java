@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class SistemaUsuario {
     
-    private ArrayList<Jugador> usuarios = new ArrayList();
+    private ArrayList<Jugador> jugadores = new ArrayList();
     private ArrayList<Jugador> logueados = new ArrayList();
     private boolean habilitado=true;
     //Esto no deberia ir aqui
@@ -25,19 +25,23 @@ public class SistemaUsuario {
     }
     
     public void agregar(Jugador u){
-        usuarios.add(u);
+        jugadores.add(u);
     }
+    
     public Jugador login(String nom,String pass){
-        if(!habilitado) return null;
-        for(Jugador u:usuarios){
-            if(u.getNombre().equals(nom) && u.getContrasenia().equals(pass)){
-                logueados.add(u);
+        if(!habilitado) 
+            return null;
+        
+        for(Jugador j:jugadores){
+            if(j.getNombreUsuario().equalsIgnoreCase(nom) && j.getContrasenia().equals(pass)){
+                logueados.add(j);
                 Fachada.getInstancia().avisar(Fachada.EVENTO_LOGUEADOS);
-                return u;
+                return j;
             }
         }
         return null;
     }
+    
     public void logout(Jugador u){
         logueados.remove(u);
         Fachada.getInstancia().avisar(Fachada.EVENTO_LOGUEADOS);

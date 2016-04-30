@@ -57,8 +57,18 @@ public class PanelJuegosV1 extends javax.swing.JDialog implements VistaListaJueg
 
     private void btnJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarActionPerformed
        dispose();
-        new PanelNumeros(null, false,usu).setVisible(true);
+        
+
+       
        //Aca se debe llamar a seleccion y creacion de mesa de ruleta, no borrar error para no olvidarse
+       //new PanelNumeros(null, false,usu).setVisible(true);
+       
+
+
+
+
+
+        
       
     }//GEN-LAST:event_btnJugarActionPerformed
 

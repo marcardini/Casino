@@ -1,24 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package vista;
 
-/**
- *
- * @author Mathias
- */
 public class PanelMesa extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ListaMesa
-     */
     public PanelMesa() {
         initComponents();
     }
-
-  
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -73,8 +60,6 @@ public class PanelMesa extends javax.swing.JFrame {
 
         setBounds(0, 0, 416, 339);
     }// </editor-fold>//GEN-END:initComponents
-
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrearMesa;
