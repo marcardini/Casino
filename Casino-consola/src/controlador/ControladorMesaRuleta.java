@@ -3,15 +3,15 @@ package controlador;
 import java.util.Observable;
 import java.util.Observer;
 import modelo.Fachada;
-import vista.VistaListaMesas;
+import vista.IVistaListaMesas;
 
 
 public class ControladorMesaRuleta implements Observer{
 
     private Fachada modelo = Fachada.getInstancia();
-    private VistaListaMesas vista;
+    private IVistaListaMesas vista;
 
-    public ControladorMesaRuleta(VistaListaMesas v) {
+    public ControladorMesaRuleta(IVistaListaMesas v) {
         modelo.addObserver(this);
         vista = v;
         vista.mostrar(modelo.getListaMesaRuleta());

@@ -4,13 +4,13 @@ import java.util.Observable;
 import java.util.Observer;
 import modelo.Fachada;
 import dominio.Jugador;
-import vista.VistaDatosRuleta;
+import vista.IVistaDatosRuleta;
 
 
 public class ControladorDatosRuleta implements Observer{
 
     private Fachada modelo = Fachada.getInstancia();
-    private VistaDatosRuleta vista;
+    private IVistaDatosRuleta vista;
     private Jugador usuario;
     
     

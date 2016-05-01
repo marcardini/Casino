@@ -1,6 +1,6 @@
 package controlador;
 
-import vista.VistaLogin;
+import vista.IVistaLogin;
 import java.util.Observable;
 import java.util.Observer;
 import modelo.Fachada;
@@ -9,9 +9,9 @@ import dominio.Jugador;
 public class ControladorLogin implements Observer {
     
     private Fachada modelo = Fachada.getInstancia();
-    private VistaLogin vista;
+    private IVistaLogin vista;
 
-    public ControladorLogin(VistaLogin vista) {
+    public ControladorLogin(IVistaLogin vista) {
         this.vista = vista;
         modelo.addObserver(this);
         //Esta en true para que siempre muestre el boton de iniciar sesion

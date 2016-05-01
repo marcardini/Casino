@@ -1,5 +1,6 @@
 package dominio;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -13,6 +14,7 @@ public abstract class Juego {
     
     public Juego(String nombre){
         this.nombre = nombre;
+        this.unidadesReceptorasDeJuego = new ArrayList<UnidadReceptoraDeJuego>();
     }
     
     public Juego(String nombre, List<UnidadReceptoraDeJuego> listaUnidadesReceptoras){

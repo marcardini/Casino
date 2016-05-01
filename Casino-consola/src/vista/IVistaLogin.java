@@ -2,7 +2,7 @@ package vista;
 
 import dominio.Jugador;
 
-public interface VistaLogin {
+public interface IVistaLogin {
 
     public void errorLogin();
     public void ingresar(Jugador u);

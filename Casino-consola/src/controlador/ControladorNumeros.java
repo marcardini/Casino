@@ -1,6 +1,6 @@
 package controlador;
 
-import vista.VistaNumeros;
+import vista.IVistaNumeros;
 import java.util.Observable;
 import java.util.Observer;
 import modelo.Fachada;
@@ -10,10 +10,10 @@ import dominio.Jugador;
 public class ControladorNumeros implements Observer{
     
     private Fachada modelo = Fachada.getInstancia();
-    private VistaNumeros vista;
+    private IVistaNumeros vista;
     private Jugador usuario;
 
-    public ControladorNumeros(VistaNumeros vista,Jugador u) {
+    public ControladorNumeros(IVistaNumeros vista,Jugador u) {
         this.vista = vista;
         vista.mostrar(modelo.getNumeros());
         modelo.addObserver(this); //registro

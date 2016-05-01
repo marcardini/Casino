@@ -8,7 +8,7 @@ import javax.swing.JSplitPane;
 import modelo.Numero;
 import dominio.Jugador;
 
-public class VistaNumerosV1 extends javax.swing.JDialog implements VistaNumeros,ActionListener{
+public class VistaNumerosV1 extends javax.swing.JDialog implements IVistaNumeros,ActionListener{
 
     private ControladorNumeros controlador;
     private JSplitPane split = new JSplitPane();

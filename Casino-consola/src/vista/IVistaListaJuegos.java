@@ -3,6 +3,6 @@ package vista;
 import dominio.Juego;
 import java.util.ArrayList;
 
-public interface VistaListaJuegos {
+public interface IVistaListaJuegos {
      public void mostrar(ArrayList<Juego> lista);
 }

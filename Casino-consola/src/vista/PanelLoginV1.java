@@ -4,7 +4,7 @@ import controlador.ControladorLogin;
 import javax.swing.JOptionPane;
 import dominio.Jugador;
 
-public class PanelLoginV1 extends javax.swing.JDialog implements VistaLogin {
+public class PanelLoginV1 extends javax.swing.JDialog implements IVistaLogin {
 
     private ControladorLogin controlador;
     
@@ -33,35 +33,54 @@ public class PanelLoginV1 extends javax.swing.JDialog implements VistaLogin {
         setSize(new java.awt.Dimension(600, 600));
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Leelawadee UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Usuario");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(20, 80, 60, 30);
+        jLabel1.setBounds(100, 90, 80, 20);
 
-        jLabel2.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Leelawadee", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Password");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 140, 80, 20);
-        getContentPane().add(usuario);
-        usuario.setBounds(110, 80, 100, 30);
-        getContentPane().add(password);
-        password.setBounds(110, 130, 100, 30);
+        jLabel2.setBounds(100, 140, 80, 20);
 
+        usuario.setBorder(null);
+        usuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usuarioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(usuario);
+        usuario.setBounds(230, 90, 100, 20);
+
+        password.setBorder(null);
+        getContentPane().add(password);
+        password.setBounds(230, 140, 100, 20);
+
+        login.setFont(new java.awt.Font("Leelawadee", 0, 24)); // NOI18N
+        login.setForeground(new java.awt.Color(255, 255, 255));
         login.setText("Ingresar");
+        login.setBorder(null);
+        login.setBorderPainted(false);
+        login.setContentAreaFilled(false);
+        login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        login.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        login.setIconTextGap(-3);
+        login.setMaximumSize(new java.awt.Dimension(40, 40));
+        login.setMinimumSize(new java.awt.Dimension(40, 40));
+        login.setPreferredSize(new java.awt.Dimension(40, 40));
+        login.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        login.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginActionPerformed(evt);
             }
         });
         getContentPane().add(login);
-        login.setBounds(110, 200, 100, 30);
+        login.setBounds(230, 190, 100, 30);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/homeLogo.jpg"))); // NOI18N
-        jLabel3.setMaximumSize(new java.awt.Dimension(500, 300));
-        jLabel3.setMinimumSize(new java.awt.Dimension(500, 300));
-        jLabel3.setPreferredSize(new java.awt.Dimension(500, 300));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/get_in.jpg"))); // NOI18N
         getContentPane().add(jLabel3);
         jLabel3.setBounds(0, 0, 500, 300);
 
@@ -79,6 +98,10 @@ public class PanelLoginV1 extends javax.swing.JDialog implements VistaLogin {
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         controlador.login(usuario.getText(), password.getText());
     }//GEN-LAST:event_loginActionPerformed
+
+    private void usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usuarioActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

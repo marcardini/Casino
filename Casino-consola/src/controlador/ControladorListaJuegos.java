@@ -1,6 +1,6 @@
 package controlador;
 
-import vista.VistaListaJuegos;
+import vista.IVistaListaJuegos;
 import dominio.Juego;
 import dominio.ruleta.JuegoRuleta;
 import java.util.ArrayList;
@@ -11,14 +11,14 @@ import modelo.Fachada;
 public class ControladorListaJuegos implements Observer{
     
     private Fachada modelo = Fachada.getInstancia();
-    private VistaListaJuegos vista;
+    private IVistaListaJuegos vista;
 
     @Override
     public void update(Observable o, Object arg) {
        //en caso de creacion de juegos dinamica implementar
     }
 
-    public ControladorListaJuegos(VistaListaJuegos v) {
+    public ControladorListaJuegos(IVistaListaJuegos v) {
         modelo.addObserver(this);
         vista = v;
         vista.mostrar(modelo.getListaJuegos());
