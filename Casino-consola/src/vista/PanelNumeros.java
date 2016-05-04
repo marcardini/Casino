@@ -12,7 +12,6 @@ public class PanelNumeros extends javax.swing.JPanel {
     public PanelNumeros(ArrayList<Numero> lista,ActionListener al) {
         initComponents();
         mostrar(lista,al);
-
     }
     private void mostrar(ArrayList<Numero> lista,ActionListener al){
         GridLayout disenio = new GridLayout(1,lista.size());

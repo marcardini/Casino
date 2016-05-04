@@ -123,12 +123,11 @@ public class PanelLoginV1 extends javax.swing.JDialog implements IVistaLogin {
     public void ingresar(Jugador u) {
         dispose();
         new PanelJuegosV1(null,false,u).setVisible(true);
-        //new VistaNumerosV1(null, false,u).setVisible(true); --> llamada a panel de ruleta
     }
 
     @Override
     public void habilitar(boolean b) {
-     login.setEnabled(b);
+        login.setEnabled(b);
     }
 
     

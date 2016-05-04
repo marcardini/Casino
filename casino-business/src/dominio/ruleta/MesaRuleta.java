@@ -62,16 +62,14 @@ public class MesaRuleta extends UnidadReceptoraDeJuego{
     
     @Override
     public String toString() {
-        return "Mesa " + this.getNombre() + " Usuarios en mesa: " + listaJugadores.size();        
+        return "Mesa " + this.getNombre() + ". Cantidad de jugadores: " + listaJugadores.size();        
     }
     
     public boolean puedoAgregar(){
-        if(listaJugadores.size() < 4){
+        if(listaJugadores.size() < 4)
             return true;
-        }else{
+        else
             return false;
-        }
-        
     }
     
     public boolean Validar(){

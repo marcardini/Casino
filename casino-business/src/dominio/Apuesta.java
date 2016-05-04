@@ -1,11 +1,11 @@
 package dominio;
 
-import DateTimeProcessors.DateTimeProcessors;
 import java.math.BigDecimal;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public abstract class Apuesta {
-    
-    DateTimeProcessors fechaHoraUtil;
     
     private int id;
     private UnidadReceptoraDeJuego unidadReceptora;
@@ -17,7 +17,7 @@ public abstract class Apuesta {
     public Apuesta(UnidadReceptoraDeJuego unidadReceptora, Jugador jugador, boolean terminada){
         this.unidadReceptora = unidadReceptora;
         this.jugador = jugador;
-        this.fecha = fechaHoraUtil.ObtenerFechaHoraActual();
+        this.fecha = this.ObtenerFechaHoraActual();
         this.apuestaTerminada = terminada;
     }
 
@@ -67,6 +67,15 @@ public abstract class Apuesta {
     
     public void setFinalizoApuesta(boolean finalizoApuesta) {
         this.apuestaTerminada = finalizoApuesta;
+    }
+    
+        private String ObtenerFechaHoraActual()
+    {
+        String retorno = "";
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyy HH:mm:ss");
+        Date fecha = new Date();
+        retorno = dateFormat.format(fecha);
+        return retorno;
     }
  
 }

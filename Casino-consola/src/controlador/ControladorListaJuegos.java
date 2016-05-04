@@ -25,7 +25,7 @@ public class ControladorListaJuegos implements Observer{
     }
     
     public static ArrayList<Juego> getListaJuegos(){
-        ArrayList<Juego> retorno = new ArrayList<Juego>();
+        ArrayList<Juego> retorno = new ArrayList();
         
         retorno.add(new JuegoRuleta("Ruleta"));
         

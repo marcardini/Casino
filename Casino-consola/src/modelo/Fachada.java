@@ -38,7 +38,7 @@ public class Fachada extends Observable{
         su.agregar(u);
     }
     
-    public ArrayList<MesaRuleta> getListaMesaRuleta(){
+    public ArrayList<MesaRuleta> getListaMesasRuleta(){
         return smr.getListaMesas();
     }
 

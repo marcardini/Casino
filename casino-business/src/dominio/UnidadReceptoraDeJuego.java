@@ -1,6 +1,8 @@
 package dominio;
 
-import DateTimeProcessors.DateTimeProcessors;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public abstract class UnidadReceptoraDeJuego {
     
@@ -9,11 +11,9 @@ public abstract class UnidadReceptoraDeJuego {
     private String fechaCreacion;
     private boolean eliminada;
     
-    private DateTimeProcessors fechaUtil;
-    
     public UnidadReceptoraDeJuego(Jugador usuarioCreador){
         this.usuarioCreador = usuarioCreador.getNombre();
-        this.fechaCreacion = fechaUtil.ObtenerFechaHoraActual();
+        this.fechaCreacion = this.ObtenerFechaHoraActual();
         usuarioCreador.setUnidadReceptoraDeJuegoActual(this);
     }
     
@@ -47,5 +47,14 @@ public abstract class UnidadReceptoraDeJuego {
     
     public void setEliminada(boolean eliminada) {
         this.eliminada = eliminada;
+    }
+    
+    private String ObtenerFechaHoraActual()
+    {
+        String retorno = "";
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyy HH:mm:ss");
+        Date fecha = new Date();
+        retorno = dateFormat.format(fecha);
+        return retorno;
     }
 }

@@ -13,6 +13,7 @@ public class PanelJuegosV1 extends javax.swing.JDialog implements IVistaListaJue
     private ControladorListaJuegos controladorJuegos;
     private ControladorListaUsuarios controladorUsuarios;
     private Jugador usu;
+    
     public PanelJuegosV1(java.awt.Frame parent, boolean modal, Jugador u) {
         super(parent, modal);
         initComponents();
@@ -25,6 +26,7 @@ public class PanelJuegosV1 extends javax.swing.JDialog implements IVistaListaJue
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         btnJugar = new javax.swing.JButton();
         comboJuegos = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
@@ -33,9 +35,7 @@ public class PanelJuegosV1 extends javax.swing.JDialog implements IVistaListaJue
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(750, 500));
         setMinimumSize(new java.awt.Dimension(750, 500));
-        setPreferredSize(new java.awt.Dimension(750, 500));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -72,7 +72,7 @@ public class PanelJuegosV1 extends javax.swing.JDialog implements IVistaListaJue
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/estadisticas_ejemplo_transparent2.png"))); // NOI18N
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(10, 20, 560, 300);
+        jLabel5.setBounds(0, 40, 580, 290);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/home_750x500.jpg"))); // NOI18N
         getContentPane().add(jLabel3);
@@ -87,19 +87,8 @@ public class PanelJuegosV1 extends javax.swing.JDialog implements IVistaListaJue
 
     private void btnJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarActionPerformed
        dispose();
-        
+        new DialogoElegirMesa(null,false,usu).setVisible(true);
 
-       
-       //Aca se debe llamar a seleccion y creacion de mesa de ruleta, no borrar error para no olvidarse
-       //new PanelNumeros(null, false,usu).setVisible(true);
-       
-
-
-
-
-
-        
-      
     }//GEN-LAST:event_btnJugarActionPerformed
 
     
@@ -110,11 +99,12 @@ public class PanelJuegosV1 extends javax.swing.JDialog implements IVistaListaJue
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void mostrar(ArrayList<Juego> listaJuegos) {
-        //listaJuegos.setListData(listaJuegos.toArray());
+        
         DefaultComboBoxModel model = (DefaultComboBoxModel) comboJuegos.getModel();
         model.removeAllElements();
         
