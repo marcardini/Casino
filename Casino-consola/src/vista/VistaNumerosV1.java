@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import javax.swing.JSplitPane;
 import modelo.Numero;
 import dominio.Jugador;
+import dominio.ruleta.CasilleroRuleta;
 
 public class VistaNumerosV1 extends javax.swing.JDialog implements IVistaNumeros,ActionListener{
 
@@ -16,7 +17,7 @@ public class VistaNumerosV1 extends javax.swing.JDialog implements IVistaNumeros
     public VistaNumerosV1(java.awt.Frame parent, boolean modal,Jugador u) {
         super(parent, modal);
         initComponents();
-        split.setTopComponent(new PanelDatos());
+        split.setTopComponent(new PanelDatosRuleta());
         split.setOrientation(JSplitPane.VERTICAL_SPLIT);
         setContentPane(split);
         controlador = new ControladorNumeros(this,u);
@@ -52,8 +53,8 @@ public class VistaNumerosV1 extends javax.swing.JDialog implements IVistaNumeros
     @Override
     public void actionPerformed(ActionEvent e) {
         BotonRuleta origen = (BotonRuleta) e.getSource();
-        Numero n = origen.getNumero();
-        controlador.marcar(n);
+        CasilleroRuleta c = origen.getNumero();
+        controlador.marcar(c);
         //JOptionPane.showMessageDialog(null,origen.getNumero().getValor() + "");
     }
 

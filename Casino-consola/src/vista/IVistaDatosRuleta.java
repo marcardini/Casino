@@ -1,8 +1,9 @@
 package vista;
 
-import java.util.ArrayList;
-import modelo.Numero;
+import dominio.Jugador;
+import dominio.ruleta.MesaRuleta;
 
 public interface IVistaDatosRuleta {
-    public void mostrar(ArrayList<Numero> numeros);
+    
+    void mostrar(MesaRuleta mesa, Jugador usu);
 }

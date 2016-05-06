@@ -21,7 +21,7 @@ public class PanelNumeros extends javax.swing.JPanel {
             b.setBackground(n.getColor());
             b.setForeground(Color.white);
             b.addActionListener(al);
-            b.setNumero(n);
+            //b.setNumero(n);
             Jugador u = n.getUsuario();
             if(u==null) b.setToolTipText("Sin marcar");
             else b.setToolTipText(u.getNombreUsuario());

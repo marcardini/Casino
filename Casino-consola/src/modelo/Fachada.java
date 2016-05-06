@@ -18,6 +18,7 @@ public class Fachada extends Observable{
     public static final int EVENTO_LISTA_JUEGOS = 4;
     public static final int EVENTO_MESA_NUEVA = 5;
     public static final int EVENTO_NUEVO_INTEGRANTE_MESA = 6;
+    public static final int EVENTO_INICIO_JUEGO = 7;
 
     private Fachada() {
     }

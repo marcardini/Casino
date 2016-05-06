@@ -6,32 +6,28 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 import modelo.Fachada;
+import vista.IVistaDatosRuleta;
 import vista.IVistaListMesas;
 
 public class ControladorMesaRuleta implements Observer{
 
     private Fachada modelo = Fachada.getInstancia();
-    private IVistaListMesas vista;
+    private IVistaDatosRuleta vista;
     private Jugador usu;
+    private MesaRuleta mesa;
 
-    @SuppressWarnings("static-access")
-    public ControladorMesaRuleta(IVistaListMesas v, Jugador usu) {
-        ArrayList<MesaRuleta> listaMesasRuleta = this.getListaMesasRuleta(usu);
+    public ControladorMesaRuleta(IVistaDatosRuleta v, MesaRuleta mesa, Jugador usu) {
         modelo.addObserver(this);
         vista = v;
-        vista.mostrar(listaMesasRuleta);
+        vista.mostrar(mesa,usu);
     }
-    
+
     @Override
     public void update(Observable o, Object evento) {
-        if(evento.equals(Fachada.EVENTO_MESA_NUEVA)){
-            vista.mostrar(modelo.getListaMesasRuleta());
+        if(evento.equals(Fachada.EVENTO_INICIO_JUEGO)){
+            //Esta en true para que siempre muestre el boton de iniciar sesion
+            vista.mostrar(mesa,usu);
         }
     }
- 
-    public static ArrayList<MesaRuleta> getListaMesasRuleta(Jugador usuario){
-        ArrayList<MesaRuleta> retorno = new ArrayList();
-        retorno.add(new MesaRuleta("Prueba", usuario));
-        return retorno;
-    }
+   
 }

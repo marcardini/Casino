@@ -4,5 +4,7 @@ import dominio.ruleta.MesaRuleta;
 import java.util.ArrayList;
 
 public interface IVistaListMesas {
-     public void mostrar(ArrayList<MesaRuleta> lista);
+     void mostrar(ArrayList<MesaRuleta> lista);
+     void mostrarMesa(MesaRuleta mesa);
+     void errorCreandoMesa();
 }

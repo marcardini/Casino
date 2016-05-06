@@ -14,6 +14,23 @@ public class MesaRuleta extends UnidadReceptoraDeJuego{
     una clave compuesta de nombre, usuarioCreador y fecha. */
     
     private String nombre;
+    private ArrayList<CasilleroRuleta> numeros;
+
+    public void setNumeros(ArrayList<CasilleroRuleta> numeros) {
+        this.numeros = numeros;
+    }
+
+    public void setListaJugadores(ArrayList<Jugador> listaJugadores) {
+        this.listaJugadores = listaJugadores;
+    }
+
+    public ArrayList<CasilleroRuleta> getNumeros() {
+        return numeros;
+    }
+
+    public ArrayList<Jugador> getListaJugadores() {
+        return listaJugadores;
+    }
     private List<Integer> numerosApostados;
     private List<Color> coloresDisponiblesParaJugadores;
     private int ultimoNumeroSortado;

@@ -6,6 +6,7 @@ import java.util.Observer;
 import modelo.Fachada;
 import modelo.Numero;
 import dominio.Jugador;
+import dominio.ruleta.CasilleroRuleta;
 
 public class ControladorNumeros implements Observer{
     
@@ -27,8 +28,8 @@ public class ControladorNumeros implements Observer{
        }
     }
 
-    public void marcar(Numero n) {
-        n.marcar(usuario);
+    public void marcar(CasilleroRuleta c) {
+        c.setJugadorAposto(usuario);
     }
     
 }
