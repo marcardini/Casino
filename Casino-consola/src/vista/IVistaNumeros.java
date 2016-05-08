@@ -1,8 +1,8 @@
 package vista;
 
+import dominio.ruleta.CasilleroRuleta;
 import java.util.ArrayList;
-import modelo.Numero;
 
 public interface IVistaNumeros {
-    public void mostrar(ArrayList<Numero> numeros);
+    public void mostrar(ArrayList<CasilleroRuleta> numeros);
 }

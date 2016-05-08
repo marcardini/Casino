@@ -13,8 +13,12 @@ public class CasilleroRuleta {
     private BigDecimal montoApostado;
     private Jugador jugadorAposto;
     private MesaRuleta mesa;
+    private Color colorAMostrar;
     
-    public CasilleroRuleta(){}
+    public CasilleroRuleta(int numero, Color color){
+        this.numeroEnMesa = numero;
+        this.colorOriginal = color;
+    }
     
     public CasilleroRuleta(MesaRuleta mesa, int numeroEnMesa, Color colorOriginal)
     {
@@ -22,6 +26,7 @@ public class CasilleroRuleta {
         this.numeroEnMesa = numeroEnMesa;
         this.colorOriginal = colorOriginal;
         this.montoApostado = BigDecimal.ZERO;
+        this.colorAMostrar = colorOriginal;
     }
     
     public boolean ValidarCasilleroRuleta()
@@ -90,16 +95,20 @@ public class CasilleroRuleta {
         this.numeroEnMesa = numeroEnMesa;
     }
 
-    public void setColorOriginal(Color colorOriginal) {
-        this.colorOriginal = colorOriginal;
-    }
-
     public void setMontoApostado(BigDecimal montoApostado) {
         this.montoApostado = montoApostado;
     }
 
     public void setJugadorAposto(Jugador jugadorAposto) {
         this.jugadorAposto = jugadorAposto;
+    }
+    
+    public void setColorAMostrar(Color colorAMostrar) {
+        this.colorAMostrar = colorAMostrar;
+    }
+
+    public Color getColorAMostrar() {
+        return colorAMostrar;
     }
 
 }

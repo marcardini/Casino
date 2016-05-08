@@ -2,6 +2,7 @@ package modelo;
 
 import dominio.Juego;
 import dominio.Jugador;
+import dominio.ruleta.CasilleroRuleta;
 import dominio.ruleta.MesaRuleta;
 import java.util.ArrayList;
 import java.util.Observable;
@@ -20,11 +21,15 @@ public class Fachada extends Observable{
     public static final int EVENTO_NUEVO_INTEGRANTE_MESA = 6;
     public static final int EVENTO_INICIO_JUEGO = 7;
 
-    private Fachada() {
+    private Fachada() {}
+    
+    public MesaRuleta agregarMesaRuleta(String nombreMesaRuleta, Jugador usuarioCreador){
+       MesaRuleta mesa =  smr.crearMesaRuleta(nombreMesaRuleta, usuarioCreador);
+       return mesa;
     }
     
-    public void agregarMesaRuleta(String nombreMesaRuleta, Jugador usuarioCreador){
-        smr.crearMesaRuleta(nombreMesaRuleta, usuarioCreador);
+    public boolean agregarJugadorAMesa(MesaRuleta mesa, Jugador usu){
+        return smr.agrgarJugadorMesaRuleta(usu, mesa);
     }
     
     public static Fachada getInstancia() {
@@ -40,7 +45,14 @@ public class Fachada extends Observable{
     }
     
     public ArrayList<MesaRuleta> getListaMesasRuleta(){
-        return smr.getListaMesas();
+        ArrayList<MesaRuleta> retorno = new ArrayList();
+        ArrayList<MesaRuleta> lista = smr.getListaMesas();
+        
+        for(MesaRuleta mesa : lista){
+            if(mesa.getListaJugadores().size() < 4)
+                retorno.add(mesa);
+        }
+        return retorno;
     }
 
     public Jugador login(String nom, String pass) {
@@ -59,24 +71,12 @@ public class Fachada extends Observable{
         return sj.getListaJuegos();
     }
 
-//    public void deshabilitar() {
-//        su.deshabilitar();
-//    }
-//
-//    public void habilitar() {
-//        su.habilitar();
-//    }
-//
-//    public boolean isHabilitado() {
-//        return su.isHabilitado();
-//    }
-
-    public ArrayList<Numero> getNumeros() {
-        return su.getNumeros();
+    public ArrayList<CasilleroRuleta> getNumeros() {
+        return smr.getNumeros();
     }
 
     public void agregarNumero() {
-        su.agregarNumero();
+        smr.agregarNumero();
     }
     
 }

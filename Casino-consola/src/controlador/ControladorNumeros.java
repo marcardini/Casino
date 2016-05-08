@@ -4,7 +4,6 @@ import vista.IVistaNumeros;
 import java.util.Observable;
 import java.util.Observer;
 import modelo.Fachada;
-import modelo.Numero;
 import dominio.Jugador;
 import dominio.ruleta.CasilleroRuleta;
 

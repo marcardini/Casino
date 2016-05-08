@@ -4,28 +4,36 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import modelo.Numero;
 import dominio.Jugador;
+import dominio.ruleta.CasilleroRuleta;
 
 public class PanelNumeros extends javax.swing.JPanel {
     
-    public PanelNumeros(ArrayList<Numero> lista,ActionListener al) {
+    public PanelNumeros(ArrayList<CasilleroRuleta> lista,ActionListener al) {
         initComponents();
         mostrar(lista,al);
     }
-    private void mostrar(ArrayList<Numero> lista,ActionListener al){
-        GridLayout disenio = new GridLayout(1,lista.size());
+    private void mostrar(ArrayList<CasilleroRuleta> lista,ActionListener al){
+        GridLayout disenio = new GridLayout(3,lista.size());
         setLayout(disenio);
-        for(Numero n:lista){
-            BotonRuleta b = new BotonRuleta(n.getValor() + "");
-            b.setBackground(n.getColor());
+        for(CasilleroRuleta c : lista){
+            BotonRuleta b = new BotonRuleta(c.getNumeroEnMesa() + "");
+            b.setBackground(c.getColorOriginal());
             b.setForeground(Color.white);
             b.addActionListener(al);
-            //b.setNumero(n);
-            Jugador u = n.getUsuario();
-            if(u==null) b.setToolTipText("Sin marcar");
-            else b.setToolTipText(u.getNombreUsuario());
-            add(b);
+            b.setNumero(c);
+            Jugador u = c.getJugadorAposto();
+            if(u == null){
+                c.setJugadorAposto(u);
+                //c.setNumeroEnMesa(b.getNumero());
+                c.setColorAMostrar(c.getColorOriginal());
+                b.setToolTipText("Sin marcar");
+            }
+            else{
+                c.setColorAMostrar(u.getJugadorRuleta().getColor());
+                b.setToolTipText(u.getNombreUsuario());
+            }
+            this.add(b);
         }
     }
 

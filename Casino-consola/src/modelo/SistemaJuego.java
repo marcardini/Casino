@@ -2,12 +2,13 @@ package modelo;
 
 import dominio.Juego;
 import dominio.ruleta.JuegoRuleta;
+import dominio.ruleta.MesaRuleta;
 import java.util.ArrayList;
 
 public class SistemaJuego {
     
     private ArrayList<Juego> listaJuegos = new ArrayList();
-    
+
     public SistemaJuego(){
         listaJuegos.add(new JuegoRuleta("Ruleta"));
         //agregar todos los juegos que se necesiten

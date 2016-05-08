@@ -15,27 +15,10 @@ public class MesaRuleta extends UnidadReceptoraDeJuego{
     
     private String nombre;
     private ArrayList<CasilleroRuleta> numeros;
-
-    public void setNumeros(ArrayList<CasilleroRuleta> numeros) {
-        this.numeros = numeros;
-    }
-
-    public void setListaJugadores(ArrayList<Jugador> listaJugadores) {
-        this.listaJugadores = listaJugadores;
-    }
-
-    public ArrayList<CasilleroRuleta> getNumeros() {
-        return numeros;
-    }
-
-    public ArrayList<Jugador> getListaJugadores() {
-        return listaJugadores;
-    }
+    private ArrayList<Jugador> listaJugadores = new ArrayList();
     private List<Integer> numerosApostados;
     private List<Color> coloresDisponiblesParaJugadores;
     private int ultimoNumeroSortado;
-    
-    private ArrayList<Jugador> listaJugadores = new ArrayList();
     
     public MesaRuleta(String nombre, Jugador usuarioCreador){
         super(usuarioCreador);
@@ -94,7 +77,6 @@ public class MesaRuleta extends UnidadReceptoraDeJuego{
     
     }
 
-    
     public String getNombre() {
         return nombre;
     }
@@ -117,6 +99,17 @@ public class MesaRuleta extends UnidadReceptoraDeJuego{
         coloresDisponiblesParaJugadores.add(colorJugador);
     }
     
+    public boolean agregarJugadorRuleta(Jugador jugadorMesaRuleta){
+        
+        if(this.puedoAgregar()){
+            this.listaJugadores.add(jugadorMesaRuleta);
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
     public int getUltimoNumeroSortado() {
         return ultimoNumeroSortado;
     }
@@ -137,16 +130,20 @@ public class MesaRuleta extends UnidadReceptoraDeJuego{
         this.ultimoNumeroSortado = ultimoNumeroSortado;
     }
     
-    public boolean agregarJugadorRuleta(Jugador jugadorMesaRuleta){
-        
-        if(this.puedoAgregar()){
-            this.listaJugadores.add(jugadorMesaRuleta);
-            return true;
-        }
-        else{
-            return false;
-        }
-        
+    public void setNumeros(ArrayList<CasilleroRuleta> numeros) {
+        this.numeros = numeros;
+    }
+
+    public void setListaJugadores(ArrayList<Jugador> listaJugadores) {
+        this.listaJugadores = listaJugadores;
+    }
+
+    public ArrayList<CasilleroRuleta> getNumeros() {
+        return numeros;
+    }
+
+    public ArrayList<Jugador> getListaJugadores() {
+        return listaJugadores;
     }
     
 }

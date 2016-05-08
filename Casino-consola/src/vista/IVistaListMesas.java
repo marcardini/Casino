@@ -7,4 +7,6 @@ public interface IVistaListMesas {
      void mostrar(ArrayList<MesaRuleta> lista);
      void mostrarMesa(MesaRuleta mesa);
      void errorCreandoMesa();
+     void listaMesasVacias();
+     void nombreInvalido();
 }

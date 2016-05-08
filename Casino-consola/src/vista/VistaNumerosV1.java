@@ -5,19 +5,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JSplitPane;
-import modelo.Numero;
 import dominio.Jugador;
 import dominio.ruleta.CasilleroRuleta;
+import dominio.ruleta.MesaRuleta;
 
 public class VistaNumerosV1 extends javax.swing.JDialog implements IVistaNumeros,ActionListener{
 
     private ControladorNumeros controlador;
     private JSplitPane split = new JSplitPane();
     
-    public VistaNumerosV1(java.awt.Frame parent, boolean modal,Jugador u) {
+    public VistaNumerosV1(java.awt.Frame parent, boolean modal,Jugador u,MesaRuleta m) {
         super(parent, modal);
         initComponents();
-        split.setTopComponent(new PanelDatosRuleta());
+        split.setTopComponent(new PanelDatosRuleta(u,m));
         split.setOrientation(JSplitPane.VERTICAL_SPLIT);
         setContentPane(split);
         controlador = new ControladorNumeros(this,u);
@@ -38,14 +38,14 @@ public class VistaNumerosV1 extends javax.swing.JDialog implements IVistaNumeros
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 299, Short.MAX_VALUE)
         );
 
         setBounds(0, 0, 416, 338);
     }// </editor-fold>//GEN-END:initComponents
 
     @Override
-    public void mostrar(ArrayList<Numero> numeros) {
+    public void mostrar(ArrayList<CasilleroRuleta> numeros) {
         split.setBottomComponent(new PanelNumeros(numeros,this));
         validate(); //refrescar
     }

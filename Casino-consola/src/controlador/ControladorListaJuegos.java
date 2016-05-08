@@ -12,7 +12,8 @@ public class ControladorListaJuegos implements Observer{
     
     private Fachada modelo = Fachada.getInstancia();
     private IVistaListaJuegos vista;
-
+    private ArrayList<Juego> listaJuegos;
+    
     @Override
     public void update(Observable o, Object arg) {
        //en caso de creacion de juegos dinamica implementar
@@ -22,15 +23,16 @@ public class ControladorListaJuegos implements Observer{
         modelo.addObserver(this);
         vista = v;
         vista.mostrar(modelo.getListaJuegos());
+        listaJuegos = new ArrayList();
+        
+        listaJuegos.add(new JuegoRuleta("Ruleta"));
+    }
+
+    public ArrayList<Juego> getListaJuegos() {
+        return listaJuegos;
     }
     
-    public static ArrayList<Juego> getListaJuegos(){
-        ArrayList<Juego> retorno = new ArrayList();
-        
-        retorno.add(new JuegoRuleta("Ruleta"));
-        
-        return retorno;
-    }
+
     
     
 }

@@ -4,6 +4,7 @@ import controlador.ControladorListaMesas;
 import controlador.ControladorListaUsuarios;
 import controlador.ControladorMesaRuleta;
 import controlador.ControladorNumeros;
+import dominio.Juego;
 import dominio.Jugador;
 import dominio.ruleta.CasilleroRuleta;
 import dominio.ruleta.MesaRuleta;
@@ -19,10 +20,11 @@ public class DialogoElegirMesa extends javax.swing.JDialog implements IVistaList
     private ControladorListaMesas controladorListaMesas;
     private ControladorListaUsuarios controladorUsuarios;
     private ControladorNumeros controlador;
+    private ControladorMesaRuleta controladorMesaRuleta;
     private Jugador usu;
     private JSplitPane split = new JSplitPane();
     
-    public DialogoElegirMesa(java.awt.Frame parent, boolean modal, Jugador u) {
+    public DialogoElegirMesa(java.awt.Frame parent, boolean modal, Jugador u, Juego juegoSeleccionado) {
         super(parent, modal);
         initComponents();
         controladorListaMesas = new ControladorListaMesas(this, u);
@@ -30,19 +32,27 @@ public class DialogoElegirMesa extends javax.swing.JDialog implements IVistaList
         usu = u;
     }
     
-        @Override
+    @Override
     public void mostrar(ArrayList<MesaRuleta> listaMesas) {
         DefaultComboBoxModel model = (DefaultComboBoxModel) comboMesas.getModel();
         model.removeAllElements();
         
-        for(MesaRuleta mesa : listaMesas){
-            model.addElement(mesa.toString());
+        if(listaMesas.isEmpty())
+            model.addElement("No hay mesas elegibles");
+        
+        else{
+        //ArrayList<MesaRuleta> listaMesasControlada = new ArrayList();
+        //listaMesasControlada = controladorListaMesas.controlarElegibles(listaMesas);
+        
+            for(MesaRuleta mesa : listaMesas){
+                model.addElement(mesa.toString());
+            }
         }
     }
 
     @Override
     public void mostrarMesa(MesaRuleta mesa) {
-        new PanelDatosRuleta(null,false,mesa,usu,mesa.getNumeros(),this).setVisible(true);
+        new VistaNumerosV1(null, false, usu, mesa).setVisible(true);
     }
 
     @Override
@@ -51,12 +61,21 @@ public class DialogoElegirMesa extends javax.swing.JDialog implements IVistaList
     }
     
     @Override
+    public void listaMesasVacias() {
+       JOptionPane.showMessageDialog(this, "Debe crear una mesa");
+    }
+    
+    @Override
+    public void nombreInvalido() {
+       JOptionPane.showMessageDialog(this, "Nombre inválido");
+    }
+    
+    @Override
     public void actionPerformed(ActionEvent e) {
         BotonRuleta origen = (BotonRuleta) e.getSource();
         CasilleroRuleta c = origen.getNumero();
         controlador.marcar(c);
     }
-    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -99,6 +118,11 @@ public class DialogoElegirMesa extends javax.swing.JDialog implements IVistaList
 
         btnEntrar.setFont(new java.awt.Font("Leelawadee", 0, 18)); // NOI18N
         btnEntrar.setText("Entrar");
+        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnEntrar);
         btnEntrar.setBounds(360, 200, 140, 40);
 
@@ -167,8 +191,23 @@ public class DialogoElegirMesa extends javax.swing.JDialog implements IVistaList
     }//GEN-LAST:event_formWindowClosing
 
     private void btnCrearMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearMesaActionPerformed
-        controladorListaMesas.crearMesaEIngresar(txtNombreMesa.getText(), usu);
+        MesaRuleta mesaNueva = controladorListaMesas.crearMesa(txtNombreMesa.getText(), usu);
+        if(mesaNueva != null){
+            dispose();
+            new VistaNumerosV1(null, false,usu,mesaNueva).setVisible(true);
+        }
     }//GEN-LAST:event_btnCrearMesaActionPerformed
+
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+       DefaultComboBoxModel model = (DefaultComboBoxModel) comboMesas.getModel();
+       String nombreMesaSeleccionada = model.getSelectedItem().toString();
+       MesaRuleta mesa = controladorListaMesas.buscarMesa(nombreMesaSeleccionada, usu);
+       
+       if(mesa != null){
+            dispose();
+            new VistaNumerosV1(null, false,usu,mesa).setVisible(true);
+       }
+    }//GEN-LAST:event_btnEntrarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -183,6 +222,4 @@ public class DialogoElegirMesa extends javax.swing.JDialog implements IVistaList
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtNombreMesa;
     // End of variables declaration//GEN-END:variables
-
-
 }

@@ -56,6 +56,11 @@ public class PanelLoginV1 extends javax.swing.JDialog implements IVistaLogin {
 
         login.setFont(new java.awt.Font("Leelawadee", 0, 16)); // NOI18N
         login.setText("Ingresar");
+        login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginActionPerformed(evt);
+            }
+        });
         getContentPane().add(login);
         login.setBounds(230, 190, 100, 30);
 
@@ -65,6 +70,10 @@ public class PanelLoginV1 extends javax.swing.JDialog implements IVistaLogin {
 
         setBounds(0, 0, 514, 340);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
+        controlador.login(usuario.getText(), contrasenia.getText());
+    }//GEN-LAST:event_loginActionPerformed
 
     private void usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioActionPerformed
         // TODO add your handling code here:
@@ -88,11 +97,12 @@ public class PanelLoginV1 extends javax.swing.JDialog implements IVistaLogin {
     public void ingresar(Jugador u) {
         dispose();
         new PanelJuegosV1(null,false,u).setVisible(true);
+        //new VistaNumerosV1(null, false,u).setVisible(true); --> llamada a panel de ruleta
     }
 
     @Override
     public void habilitar(boolean b) {
-        login.setEnabled(b);
+     login.setEnabled(b);
     }
 
     
